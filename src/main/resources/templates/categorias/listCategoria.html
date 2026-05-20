@@ -1,0 +1,24 @@
+<h2>Lista de Categorías</h2>
+
+<div th:if="${msg}" th:text="${msg}"></div>
+
+<a th:href="@{/categorias/create}">
+    Nueva Categoría
+</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+    </tr>
+
+    <tr th:each="cat : ${categorias}">
+        <td th:text="${cat.id}"></td>
+        <td th:text="${cat.nombre}"></td>
+        <td>
+            <a th:href="@{/categorias/edit/{id}(id=${cat.id})}">Editar</a>
+            <a th:href="@{/categorias/delete/{id}(id=${cat.id})}">Eliminar</a>
+        </td>
+    </tr>
+</table>
